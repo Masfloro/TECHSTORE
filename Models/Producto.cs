@@ -1,12 +1,11 @@
 
 using System.ComponentModel.DataAnnotations;
 
-public class Cliente{
-    public String Id{get;set;}
-
+public class Producto{
+    
     [Display(Name ="Nombre del Producto")]
     [Required]
-    public String NombreProducto{get;set;}
+    public String Nombre{get;set;}
 
     [Display(Name ="Descripcion del Producto")]
     [Required]

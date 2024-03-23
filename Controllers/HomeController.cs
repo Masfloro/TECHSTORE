@@ -28,4 +28,28 @@ public class HomeController : Controller
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
+
+
+
+    [HttpPost]
+    public IActionResult Create([Bind("Nombre,Descripcion,Precio")] Producto producto)
+    {
+        if (ModelState.IsValid)
+        {
+            ViewData["Message"] = "Ya se calculo el IGV";
+            Double precio = producto.Precio;
+            Double IGV = 0.18;
+            double impuesto = precio * IGV;
+            ViewData["ImpuestoCalculado"] = "El impuesto a pagar es" + impuesto;            
+            return View("Index");
+        }
+        else{
+            ViewData["Message"] = "ERROR";
+        }
+        return View("Index");
+    }
+
+
 }
+
+
