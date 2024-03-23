@@ -40,7 +40,8 @@ public class HomeController : Controller
             Double precio = producto.Precio;
             Double IGV = 0.18;
             double impuesto = precio * IGV;
-            ViewData["ImpuestoCalculado"] = "El impuesto a pagar es" + impuesto;            
+            String nombre = producto.Nombre;
+            ViewData["ImpuestoCalculado"] = "El impuesto a pagar del producto " + nombre +  " es:  " + impuesto + "  soles.";            
             return View("Index");
         }
         else{
